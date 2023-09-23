@@ -36,11 +36,23 @@
             score++;
             $('#score').text(score);
 
-            if(score === 10)
+            if(score >= 10)
+                gameOver();
+        }
+
+        function addStitch() {
+            score++;
+            score++;
+            score++;
+
+            $('#score').text(score);
+
+            if(score >= 10)
                 gameOver();
         }
 
         $('#fish').click(addScore);
+        $('#stitch').click(addStitch);
 
         function moveFish() {
             var newCSS = {
@@ -67,11 +79,12 @@
 
         setInterval(moveFish, 1000);
 
-        setInterval(moveStitch, 300);
+        setInterval(moveStitch, 1000);
 
         function gameOver() {
             $('#gameOver').show();
             $('#fish').hide();
+            $('#stitch').hide();
         }
 
         // setTimeout(gameOver, 10000);
