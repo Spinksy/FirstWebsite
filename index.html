@@ -22,13 +22,6 @@
             margin-top: 8px;
         }
 
-        .image-container.stitch { 
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid blue;
-            cursor: pointer;
-        }
-
         .image-container img { 
             width: 600px;
         }
@@ -38,24 +31,22 @@
 <body>
     <h1>Lizeys Web Site - Go Games</h1>
 
+    <h3>Games</h3>
+    <div class="image-container">
+        <a href="/fishing-game/index.html">
+            <img src="fishing-game.jpg" alt="">
+        </a>
+        
+    </div>
+    
+    <h3>Pictures</h3>
     <div class="image-container">
         <img src="https://i.natgeofe.com/n/fd7b4ec3-f25a-4808-9693-9ce004ed8693/IMG_2141.jpg?w=1084.125&h=924" alt="Doggy and Turtle Picture">
     </div>
 
     <div class="image-container stitch" onclick="playSound()">
-        <h5>Click me!</h5>
         <img src="https://diamondbynumbers.com/wp-content/uploads/2020/07/lilo-i-stich-stich-lilo-amp-paint-by-numbers.jpg" alt="Stitch at the beach">
     </div>
-
-    <audio id="beep" src="https://www.soundjay.com/button/beep-09.mp3"></audio>
-
-    <script>
-        function playSound() {
-            let sound = document.getElementById('beep');
-            console.log('playing sound')
-            
-        }
-    </script>
     
 </body>
 </html>
