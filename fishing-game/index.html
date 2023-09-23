@@ -1,66 +1,82 @@
-
 <html>
-    <head>
-        <title>Lizeys Fishing Game!</title>
-        <link rel="stylesheet" href="style.css"/>
-        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Aldrich'>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    </head>
-    <body>
 
-        <div class="main">
-            <img id="stars" src="fish-blue.png"/>
-        </div>
+<head>
+    <title>Lizeys Fishing Game!</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Aldrich'>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
 
-        <div id="gameOver"> <p>Game Over, </p>
-            
-            <p onclick="window.location.reload()"> Click to play again </p></div>
+<body>
 
-        <p>Click on the fish to catch it </p>
-        <h1 id="heading">Lizeys Fishing Game!</h1>
-        <div id="score"> 0</div>
+    <div class="main">
+        <img id="fish" src="fish-blue.png" />
+        <img id="octopus" src="cute-red-octopus.png" />
+        <img id="stitch" src="diving stitch.jpg" />
+    </div>
 
-        <script>
-            var countdown = 10;
-            var starArray = ['fish-yellow.png',
-                            'fish-blue.png',
-                            'fish-purple.png'];
+    <div id="gameOver">
+        <p>Well done! You win! </p>
+        <p onclick="window.location.reload()"> Click to play again </p>
+    </div>
 
-            var score = 0;
+    <p>Click on the fish to catch it </p>
+    <h1 id="heading">Lizeys Fishing Game!</h1>
+    <div id="score"> 0</div>
 
-            function addScore() {
-                score++;
-                $('#score').text(score);
-            }
+    <script>
+        var countdown = 10;
+        var fish = ['fish-yellow.png',
+            'fish-blue.png',
+            'fish-purple.png'];
 
-            $('#stars').click(addScore);
+        var score = 0;
 
+        function addScore() {
+            score++;
+            $('#score').text(score);
 
-            function moveStars(){
-                var newCSS = {
-                    'top':Math.random()*500+'px',
-                    'left':Math.random()*1300+'px'
-                };
-                $('#stars').css(newCSS);
+            if(score === 10)
+                gameOver();
+        }
 
-                var randomNum = Math.floor(Math.random()*starArray.length);
-                var newStar = starArray[randomNum];
+        $('#fish').click(addScore);
 
-                $('#stars').attr('src', newStar);
+        function moveFish() {
+            var newCSS = {
+                'top': Math.random() * 500 + 'px',
+                'left': Math.random() * 1300 + 'px'
+            };
 
-            }
+            $('#fish').css(newCSS);
 
-            setInterval(moveStars,1000);
+            var randomNum = Math.floor(Math.random()*fish.length);
+            var newFish = fish[randomNum];
 
+            $('#fish').attr('src', newFish);
+        }
 
-            function gameOver() {
-                $('#gameOver').show();
-                $('#stars').hide();
-            }
+        function moveStitch() {
+            var newCSS = {
+                'top': Math.random() * 500 + 'px',
+                'left': Math.random() * 1300 + 'px'
+            };
 
-            setTimeout(gameOver,10000);
+            $('#stitch').css(newCSS);
+        }
 
-        </script>
-    </body>
+        setInterval(moveFish, 1000);
+
+        setInterval(moveStitch, 300);
+
+        function gameOver() {
+            $('#gameOver').show();
+            $('#fish').hide();
+        }
+
+        // setTimeout(gameOver, 10000);
+
+    </script>
+</body>
+
 </html>
-<!-- <script type="application/javascript" src="/share.js"></script> -->
